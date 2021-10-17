@@ -1,27 +1,26 @@
 const RecommendedProducts = require("../models/recommendedProducts");
-const getAll = async (req, res) => {
-    let recommendedProducts = await RecommendedProducts.find();
+const getAll = async(req, res) => {
+    let recommendedProducts = { Name: 'Michal', Phone: '987654321' } //await RecommendedProducts.find();
     return res.send(recommendedProducts);
 }
-const getById = async (req, res) => {
+const getById = async(req, res) => {
     let { id } = req.params;
     let recommendedProducts = await RecommendedProducts.findById(id);
     if (!recommendedProducts)
         return res.status(404).send("There is no such product");
     return res.send(recommendedProducts);
 }
-const postRecommendedProduct = async (req, res) => {
+const postRecommendedProduct = async(req, res) => {
     let recommendedProducts = req.body;
     let newRecommendedProducts = new RecommendedProducts(recommendedProducts);
     try {
         await newRecommendedProducts.save();
         return res.send(newRecommendedProducts);
-    }
-    catch (err) {
+    } catch (err) {
         return res.status(400).send(err.message);
     }
 }
-const updateRecommendedProduct = async (req, res) => {
+const updateRecommendedProduct = async(req, res) => {
     let recommendedProductsBody = req.body;
     let { id } = req.params;
     let recommendedProducts = await RecommendedProducts.findById(id);
@@ -33,12 +32,11 @@ const updateRecommendedProduct = async (req, res) => {
     try {
         await recommendedProducts.save();
         return res.send(recommendedProducts);
-    }
-    catch (err) {
+    } catch (err) {
         return res.status(400).send(err.message);
     }
 }
-const deleteRecommendedProduct = async (req, res) => {
+const deleteRecommendedProduct = async(req, res) => {
     let { id } = req.params;
     let deleted = await RecommendedProducts.findByIdAndRemove(id);
     if (!deleted)
@@ -46,5 +44,9 @@ const deleteRecommendedProduct = async (req, res) => {
     return res.send(deleted);
 }
 module.exports = {
-    getAll, getById, postRecommendedProduct, deleteRecommendedProduct, updateRecommendedProduct
+    getAll,
+    getById,
+    postRecommendedProduct,
+    deleteRecommendedProduct,
+    updateRecommendedProduct
 }
