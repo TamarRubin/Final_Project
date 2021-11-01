@@ -3,20 +3,27 @@ import React, {useState} from 'react';
 import axios from 'axios';
 const url='http://localhost:5000/recommendedProducts';
 function App() {
-const [userName, setUserName] = useState('Tamar Rubin');
-const [phone, setPhone] = useState('1234567');
+const [users, setUsers] = useState([]);
 const changeName = () => {
   axios.get(`${url}/getAll`).then((res)=>{
-    setUserName(res.data.Name);
-    setPhone(res.data.Phone);
+    setUsers(res.data);
   });
-  setUserName('AAAA');
-  setPhone('1111');
 }
   return (
     <div>
-     <h1>Name: {userName}, Phone: {phone}</h1>
     <input type="button" value="change user" onClick={changeName}/>
+    <table>{users.map(u=><tr>
+      <td>idusers: {u.idusers}</td>
+
+      <td>userPhone2:{u.userPhone2}</td>
+
+      <td></td>
+
+      <td></td>
+
+      <td></td>
+
+    </tr>)}</table>
     </div>
   );
 }

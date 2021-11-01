@@ -1,12 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
-
+import Layout from './Components/Layout';
+import App from './App';
+import 'bootstrap/dist/css/bootstrap.min.css';
+//import FormPage from './Components/signIn/signIn,componnents'
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+{/*  
+    <App/> */}
+    <Layout/>
   </React.StrictMode>,
   document.getElementById('root')
 );
