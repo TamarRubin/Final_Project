@@ -8,6 +8,7 @@ function Layout() {
   const greeting = 'Hello Function Component!';
  
   return<div>
+
     <SignIn/>
       {/* < SignUp/>
   <Header/>

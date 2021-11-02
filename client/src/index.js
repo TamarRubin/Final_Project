@@ -1,16 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import Layout from './Components/Layout';
 import App from './App';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import FirstPage from './Components/FirstPage';
+import SignIn from './Components/signIn/SignIn';
 //import FormPage from './Components/signIn/signIn,componnents'
 ReactDOM.render(
   <React.StrictMode>
 {/*  
     <App/> */}
-    <Layout/>
+    <FirstPage/>
   </React.StrictMode>,
   document.getElementById('root')
 );
